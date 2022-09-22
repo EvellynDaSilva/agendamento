@@ -2,8 +2,6 @@ package br.senai.sp.jandira.model;
 
 import java.time.LocalDate;
 
-import javax.swing.JOptionPane;
-
 public class PlanoDeSaude {
 
 	private String operadora;
@@ -11,16 +9,29 @@ public class PlanoDeSaude {
 	private String numero;
 	private LocalDate validade;
 	
-	//Métodos de acesso aos atributos
-	public void setOperadora(String operadora) {
-		
-			this.operadora = operadora;
-	} {
-			JOptionPane.showMessageDialog(null, "operadora");
-			}
-	
-		public String getOperadora() {
-			return operadora;
-		}
+	public void setOperadora (String operadora) {
+		this.operadora = operadora;
+	}
+	public String getOperadora() {
+		return this.operadora;
+	}
+	public void setCategoria (String categoria) {
+		this.categoria = categoria;
+	}
+	public String getCategoria() {
+		return this.categoria;
+	}
+	public void setNumero (String numero) {
+		this.numero = numero;
+	}
+	public String getNumero() {
+		return this.numero;
+	}
+	public void setValidade (LocalDate validade) {
+		this.validade = validade;
+	}
+	public LocalDate getValidade() {
+		return this.validade;
+	}
 	
 }

@@ -7,6 +7,12 @@ public class Especialidade {
 	private String nome;
 	private String descricao;
 	
+	//Contrutores de classe
+		public Especialidade(String nova) {
+			this.nome =nome;
+		}
+		
+	
 	//Métodos de acesso aos atributos
 	public void setNome(String nome) {
 		
