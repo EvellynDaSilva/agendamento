@@ -17,7 +17,7 @@ public class testeWarppers {
 		ArrayList<Especialidade> especialidades = new ArrayList<>();
 		
 		Especialidade e1 = new Especialidade();
-		e1.setNome("Cardiologista");
+		//e1.setNome("Cardiologista");
 		e1.setDescricao("Não  deixa ter um ataque.");
 		
 		Especialidade e2 = new Especialidade();
@@ -44,7 +44,7 @@ public class testeWarppers {
 		e5.setNome("Pediatria");
 		e5.setDescricao("Sabe cuidar de criancinhas.");
 		
-		//especialidades[4] =
+		//especialidades[4] = e5;
 		
 		especialidades.add(e4);
 		especialidades.add(e5);
@@ -69,16 +69,14 @@ public class testeWarppers {
 		//Trocar o nome da especialidade que está
 		//na posição 1 do arraylist especialidades
 		//para "teste", exibir logo em seguida
-		
 		especialidades.get(1).setNome("Teste");
 		System.out.println(especialidades.get(1).getNome());
 		
 		Especialidade nova = especialidades.get(2);
 		System.out.println(nova.getNome());
-		
 		nova.setNome("Não é mais fisico");
-		System.out.println(nova.getNome());
 		
+		System.out.println(nova.getNome());
 		
 	}
 
