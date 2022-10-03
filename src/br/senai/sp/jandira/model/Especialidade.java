@@ -39,6 +39,8 @@ public class Especialidade {
 		//}
 	
 	//Métodos de acesso aos atributos
+        public int getContador
+                        
 	public void setNome(String nome) {
 		
 		if (nome.length()>= 3) {
