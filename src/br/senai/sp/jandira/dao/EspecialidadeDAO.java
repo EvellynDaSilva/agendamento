@@ -65,6 +65,6 @@ public class EspecialidadeDAO {
         especialidades.add(e2);
         especialidades.add(e3);
         especialidades.add(e4);
-}
+ }
     
 }
