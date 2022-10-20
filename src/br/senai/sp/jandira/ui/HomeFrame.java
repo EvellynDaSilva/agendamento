@@ -25,9 +25,9 @@ public class HomeFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        LabelSisacon = new javax.swing.JLabel();
+        LabelLinha = new javax.swing.JLabel();
+        LabelSistemaDeAgendamento = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -62,21 +62,21 @@ public class HomeFrame extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(null);
 
-        jLabel3.setFont(new java.awt.Font("Swis721 Ex BT", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("SISACON");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(30, 10, 210, 60);
+        LabelSisacon.setFont(new java.awt.Font("Swis721 Ex BT", 0, 36)); // NOI18N
+        LabelSisacon.setForeground(new java.awt.Color(255, 255, 255));
+        LabelSisacon.setText("SISACON");
+        jPanel2.add(LabelSisacon);
+        LabelSisacon.setBounds(30, 10, 210, 60);
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("_________________________________________________________________________________________________________________________________________________________________________");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(10, 80, 890, 16);
+        LabelLinha.setForeground(new java.awt.Color(255, 255, 255));
+        LabelLinha.setText("_________________________________________________________________________________________________________________________________________________________________________");
+        jPanel2.add(LabelLinha);
+        LabelLinha.setBounds(10, 80, 890, 16);
 
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("Sistema de Agendamento de Consultas");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(20, 70, 250, 16);
+        LabelSistemaDeAgendamento.setForeground(new java.awt.Color(153, 153, 153));
+        LabelSistemaDeAgendamento.setText("Sistema de Agendamento de Consultas");
+        jPanel2.add(LabelSistemaDeAgendamento);
+        LabelSistemaDeAgendamento.setBounds(20, 70, 250, 16);
 
         jLabel6.setFont(new java.awt.Font("Swis721 BT", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,6 +166,9 @@ public class HomeFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelLinha;
+    private javax.swing.JLabel LabelSisacon;
+    private javax.swing.JLabel LabelSistemaDeAgendamento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -175,9 +178,6 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

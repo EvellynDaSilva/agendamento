@@ -1,12 +1,38 @@
 package br.senai.sp.jandira.ui;
 
-public class EspecialidadeDialog extends javax.swing.JDialog {
+import br.senai.sp.jandira.dao.EspecialidadeDAO;
+import br.senai.sp.jandira.model.Especialidade;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
+
+public class EspecialidadeDialog extends javax.swing.JDialog {
+       private Especialidade especialidade;
    
-    public EspecialidadeDialog(java.awt.Frame parent, boolean modal) {
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
+    public EspecialidadeDialog(
+            java.awt.Frame parent,
+            boolean modal,
+            Especialidade e) {
+           
+        especialidade = e;
+        preencherFormulario();
+    }
+     public EspecialidadeDialog(java.awt.Frame parent,boolean modal) {
         super(parent, modal);
         initComponents();
-    }
+        
+        private void preencherFormulario() {
+        LabelEspecialidadeAdicionar.setText("Especialidades - ADICIONAR");
+        LabelEspecialidadeAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/lapis (3).png")));
+        CodigoEspecialidade.setText(especialidade.getCodigo().toString());
+        NomeDaEspecialidade.setText(especialidade.getNome());
+        DescricaoDeEspecialidade.setText(especialidade.getDescricao());
+     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -14,10 +40,10 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
 
         jPanel2 = new javax.swing.JPanel();
         LabelCodigo = new javax.swing.JLabel();
-        TextFieldCodigo = new javax.swing.JTextField();
-        TextFieldNomeDaEspecialidade = new javax.swing.JTextField();
+        CodigoEspecialidade = new javax.swing.JTextField();
+        NomeDaEspecialidade = new javax.swing.JTextField();
         LabelEspecialidade = new javax.swing.JLabel();
-        TextFieldDescricaoDeEspecialidade = new javax.swing.JTextField();
+        DescricaoDeEspecialidade = new javax.swing.JTextField();
         jLabelDescricaoDeEspecialidade = new javax.swing.JLabel();
         ButtonExcluir = new javax.swing.JButton();
         ButtonSalvar = new javax.swing.JButton();
@@ -37,34 +63,34 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
         jPanel2.add(LabelCodigo);
         LabelCodigo.setBounds(40, 50, 60, 16);
 
-        TextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+        CodigoEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldCodigoActionPerformed(evt);
+                CodigoEspecialidadeActionPerformed(evt);
             }
         });
-        jPanel2.add(TextFieldCodigo);
-        TextFieldCodigo.setBounds(40, 70, 120, 22);
+        jPanel2.add(CodigoEspecialidade);
+        CodigoEspecialidade.setBounds(40, 70, 120, 22);
 
-        TextFieldNomeDaEspecialidade.addActionListener(new java.awt.event.ActionListener() {
+        NomeDaEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldNomeDaEspecialidadeActionPerformed(evt);
+                NomeDaEspecialidadeActionPerformed(evt);
             }
         });
-        jPanel2.add(TextFieldNomeDaEspecialidade);
-        TextFieldNomeDaEspecialidade.setBounds(40, 140, 330, 22);
+        jPanel2.add(NomeDaEspecialidade);
+        NomeDaEspecialidade.setBounds(40, 140, 330, 22);
 
         LabelEspecialidade.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         LabelEspecialidade.setText("Nome da Especialidade");
         jPanel2.add(LabelEspecialidade);
         LabelEspecialidade.setBounds(40, 110, 160, 20);
 
-        TextFieldDescricaoDeEspecialidade.addActionListener(new java.awt.event.ActionListener() {
+        DescricaoDeEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldDescricaoDeEspecialidadeActionPerformed(evt);
+                DescricaoDeEspecialidadeActionPerformed(evt);
             }
         });
-        jPanel2.add(TextFieldDescricaoDeEspecialidade);
-        TextFieldDescricaoDeEspecialidade.setBounds(40, 200, 330, 22);
+        jPanel2.add(DescricaoDeEspecialidade);
+        DescricaoDeEspecialidade.setBounds(40, 200, 330, 22);
 
         jLabelDescricaoDeEspecialidade.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabelDescricaoDeEspecialidade.setText("Descrição de Especialidade");
@@ -73,6 +99,11 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
 
         ButtonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/caixote-de-lixo.png"))); // NOI18N
         ButtonExcluir.setToolTipText("excluir");
+        ButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonExcluirActionPerformed(evt);
+            }
+        });
         jPanel2.add(ButtonExcluir);
         ButtonExcluir.setBounds(450, 220, 70, 40);
 
@@ -93,11 +124,12 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
         jPanel3.setLayout(null);
 
         LabelEspecialidadeAdicionar.setBackground(new java.awt.Color(0, 0, 0));
-        LabelEspecialidadeAdicionar.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        LabelEspecialidadeAdicionar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
         LabelEspecialidadeAdicionar.setForeground(new java.awt.Color(255, 255, 255));
         LabelEspecialidadeAdicionar.setText("Especialidade - ADICIONAR");
+        LabelEspecialidadeAdicionar.setToolTipText("");
         jPanel3.add(LabelEspecialidadeAdicionar);
-        LabelEspecialidadeAdicionar.setBounds(180, 30, 340, 33);
+        LabelEspecialidadeAdicionar.setBounds(170, 40, 340, 27);
 
         LabelImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/editar-arquivo.png"))); // NOI18N
         jPanel3.add(LabelImg);
@@ -110,20 +142,36 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSalvarActionPerformed
-        // TODO add your handling code here:
+       
+        // Criar um objeto especialidade
+        Especialidade novaEspecialidade = new Especialidade();
+        novaEspecialidade.setNome(NomeDaEspecialidade.getText());
+        novaEspecialidade.setDescricao(DescricaoDeEspecialidade.getText());
+        
+        // Gravar o objeto, através do dao, e avisar o usuário que foi gravado
+        EspecialidadeDAO.gravar(novaEspecialidade);
+        
+        JOptionPane.showMessageDialog(this,
+                "Salvo com sucesso!",
+                "Adiciionar especialidade",
+                JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_ButtonSalvarActionPerformed
 
-    private void TextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldCodigoActionPerformed
+    private void CodigoEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodigoEspecialidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldCodigoActionPerformed
+    }//GEN-LAST:event_CodigoEspecialidadeActionPerformed
 
-    private void TextFieldNomeDaEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldNomeDaEspecialidadeActionPerformed
+    private void NomeDaEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeDaEspecialidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldNomeDaEspecialidadeActionPerformed
+    }//GEN-LAST:event_NomeDaEspecialidadeActionPerformed
 
-    private void TextFieldDescricaoDeEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldDescricaoDeEspecialidadeActionPerformed
+    private void DescricaoDeEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescricaoDeEspecialidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldDescricaoDeEspecialidadeActionPerformed
+    }//GEN-LAST:event_DescricaoDeEspecialidadeActionPerformed
+
+    private void ButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonExcluirActionPerformed
     
     
     /**
@@ -153,6 +201,7 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
         }
         //</editor-fold>
 
+        
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -171,13 +220,13 @@ public class EspecialidadeDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonExcluir;
     private javax.swing.JButton ButtonSalvar;
+    private javax.swing.JTextField CodigoEspecialidade;
+    private javax.swing.JTextField DescricaoDeEspecialidade;
     private javax.swing.JLabel LabelCodigo;
     private javax.swing.JLabel LabelEspecialidade;
     private javax.swing.JLabel LabelEspecialidadeAdicionar;
     private javax.swing.JLabel LabelImg;
-    private javax.swing.JTextField TextFieldCodigo;
-    private javax.swing.JTextField TextFieldDescricaoDeEspecialidade;
-    private javax.swing.JTextField TextFieldNomeDaEspecialidade;
+    private javax.swing.JTextField NomeDaEspecialidade;
     private javax.swing.JLabel jLabelDescricaoDeEspecialidade;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
