@@ -2,6 +2,7 @@ package br.senai.sp.jandira.ui;
 
 import br.senai.sp.jandira.dao.EspecialidadeDAO;
 import br.senai.sp.jandira.model.Especialidade;
+import br.senai.sp.jandira.model.OperacaoEnum;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -42,15 +43,15 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
 
         Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/caixote-de-lixo.png"))); // NOI18N
         jPanel2.add(Excluir);
-        Excluir.setBounds(630, 320, 80, 40);
+        Excluir.setBounds(630, 310, 60, 40);
 
         atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/atualizar-banco-de-dados.png"))); // NOI18N
         jPanel2.add(atualizar);
-        atualizar.setBounds(720, 320, 80, 39);
+        atualizar.setBounds(710, 310, 60, 39);
 
         editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/editar (1).png"))); // NOI18N
         jPanel2.add(editar);
-        editar.setBounds(810, 320, 80, 39);
+        editar.setBounds(830, 310, 60, 39);
 
         tabelaEspecialidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,42 +67,44 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
         EspecialidadePane1.setViewportView(tabelaEspecialidade);
 
         jPanel2.add(EspecialidadePane1);
-        EspecialidadePane1.setBounds(10, 30, 880, 280);
+        EspecialidadePane1.setBounds(10, 20, 880, 280);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGap(0, 912, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 376, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
+    private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
     
         if (getLinha() != -1) {
             editarEspecialidade();
         } else {
         JOptionPane.showConfirmDialog(
                 this,
-                "Por favor, selecione a especialidade que você deseja editar.",
+                "Por favor, selecione a especialidade que você deseja editar.", 
                 "Especialidades",
                 JOptionPane.WARNING_MESSAGE);
         }
-        private void editarEspecialidade() {
+    }
+    
+    private void editarEspecialidade() {
             Especialidade especialidade = new EspecialidadeDAO().getEspecialidade(getCodigo());
        
        EspecialidadeDialog especialidadeDialog = new EspecialidadeDialog(null, true, especialidade);
@@ -109,7 +112,6 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
        
        preencherTabela();
     }
-    
     
     
     
@@ -153,7 +155,7 @@ public class EspecialidadesPanel extends javax.swing.JPanel {
    
     
     EspecialidadeDialog especialidadeDialog 
-            = new EspecialidadeDialog(null, true);
+            = new EspecialidadeDialog(null, true, OperacaoEnum.ADICIONAR);
     especialidadeDialog.setVisible(true);
     
     preencherTabela();

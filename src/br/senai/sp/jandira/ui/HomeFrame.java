@@ -8,15 +8,22 @@ public class HomeFrame extends javax.swing.JFrame {
     
         private EspecialidadesPanel especialidadesPanel;
         
-                
-
    
     public HomeFrame() {
         initComponents();
          setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/senai/sp/jandira/imagens/agenda_1.png")));
+         initPanel();
         
     }
+    
+    EspecialidadesPanel panelEspecialidades;
 
+    
+    private  final int POS_X = 0;
+    private  final int POS_Y = 170;
+    private  final int LARGURA = 900;
+    private  final int ALTURA = 370;
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -24,7 +31,7 @@ public class HomeFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        panelHome = new javax.swing.JPanel();
         LabelSisacon = new javax.swing.JLabel();
         LabelLinha = new javax.swing.JLabel();
         LabelSistemaDeAgendamento = new javax.swing.JLabel();
@@ -59,50 +66,55 @@ public class HomeFrame extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 900, 110);
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel2.setLayout(null);
+        panelHome.setBackground(new java.awt.Color(51, 51, 51));
+        panelHome.setLayout(null);
 
         LabelSisacon.setFont(new java.awt.Font("Swis721 Ex BT", 0, 36)); // NOI18N
         LabelSisacon.setForeground(new java.awt.Color(255, 255, 255));
         LabelSisacon.setText("SISACON");
-        jPanel2.add(LabelSisacon);
+        panelHome.add(LabelSisacon);
         LabelSisacon.setBounds(30, 10, 210, 60);
 
         LabelLinha.setForeground(new java.awt.Color(255, 255, 255));
         LabelLinha.setText("_________________________________________________________________________________________________________________________________________________________________________");
-        jPanel2.add(LabelLinha);
+        panelHome.add(LabelLinha);
         LabelLinha.setBounds(10, 80, 890, 16);
 
         LabelSistemaDeAgendamento.setForeground(new java.awt.Color(153, 153, 153));
         LabelSistemaDeAgendamento.setText("Sistema de Agendamento de Consultas");
-        jPanel2.add(LabelSistemaDeAgendamento);
+        panelHome.add(LabelSistemaDeAgendamento);
         LabelSistemaDeAgendamento.setBounds(20, 70, 250, 16);
 
         jLabel6.setFont(new java.awt.Font("Swis721 BT", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Suporte Técnico:");
-        jPanel2.add(jLabel6);
+        panelHome.add(jLabel6);
         jLabel6.setBounds(680, 140, 150, 23);
 
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("E-mail: sisacon@gmail.com");
-        jPanel2.add(jLabel7);
+        panelHome.add(jLabel7);
         jLabel7.setBounds(670, 180, 160, 16);
 
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
         jLabel8.setText("Telefone: (11)96625-8475");
-        jPanel2.add(jLabel8);
+        panelHome.add(jLabel8);
         jLabel8.setBounds(670, 200, 170, 16);
 
         jLabel9.setForeground(new java.awt.Color(153, 153, 153));
         jLabel9.setText("www.sisacon.com.br");
-        jPanel2.add(jLabel9);
+        panelHome.add(jLabel9);
         jLabel9.setBounds(680, 220, 130, 16);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 180, 870, 290);
+        getContentPane().add(panelHome);
+        panelHome.setBounds(20, 180, 870, 290);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/casa (1).png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(10, 120, 70, 40);
 
@@ -119,10 +131,20 @@ public class HomeFrame extends javax.swing.JFrame {
         jButton4.setBounds(260, 120, 80, 39);
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/especialista.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5);
         jButton5.setBounds(350, 120, 80, 39);
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/protecao.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6);
         jButton6.setBounds(440, 120, 90, 39);
 
@@ -130,8 +152,22 @@ public class HomeFrame extends javax.swing.JFrame {
         getContentPane().add(jButton7);
         jButton7.setBounds(810, 120, 70, 40);
 
-        pack();
+        setBounds(0, 0, 915, 557);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        panelEspecialidades.setVisible(true);
+        panelHome.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        panelEspecialidades.setVisible(false);
+        panelHome.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -183,10 +219,18 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel panelHome;
     // End of variables declaration//GEN-END:variables
 
-   
+   private  void initPanel(){
+       
+       panelEspecialidades = new EspecialidadesPanel();
+       panelEspecialidades.setBounds(POS_X, POS_Y, LARGURA, ALTURA);
+       
+       getContentPane().add(panelEspecialidades);
+       panelEspecialidades.setVisible(false);
+       
+   }
 
     }
         
